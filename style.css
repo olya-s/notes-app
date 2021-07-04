@@ -1,0 +1,143 @@
+.container{
+  display: flex;
+  flex-direction: column;
+  width: 850px;
+  margin: 0 auto;
+  min-width: 460px;
+}
+.visually-hidden {
+  visibility: hidden;
+}
+.table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 5px;
+  text-align: left;
+}
+.table th:first-child {
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  width: 5%;
+  min-width: 60px;
+}
+.table th:last-child {
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+.table tr {
+  margin-top: 5px;
+  border-spacing: 10px;
+}
+.table tr:not(:first-child):hover {
+  background-color: #dfdfdf;
+}
+.table th,
+.table td {
+  width: 14%;
+}
+td > div.content,
+td > div.name {
+  width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+td > div.name {
+  width: 100px;
+}
+.table th:nth-child(3),
+.table td:nth-child(3) {
+  width: 10%;
+}
+.summary-table th:nth-child(2),
+.summary-table td:nth-child(2) {
+  width: 40%;
+}
+.summary-table th:nth-child(3),
+.summary-table td:nth-child(3) {
+  width: 25%;
+}
+.summary-table th:nth-child(4),
+.summary-table td:nth-child(4) {
+  width: 30%;
+}
+.table th:first-child,
+.table td:first-child {
+  width: 5%;
+  min-width: 40px;
+  text-align: center;
+}
+.table .category-icon {
+  display: block;
+  margin: 2px 10px;
+  padding: 10px;
+  border-radius: 50%;
+  background-color: #616161;
+  color: #fff;
+}
+.table .icons {
+  min-width: 65px;
+  text-align: right;
+  padding-right: 5px;
+}
+.table .icons span {
+  display: inline-block;
+  margin-left: 5px;
+}
+.table .icons span:hover {
+  cursor: pointer;
+  color: #fff;
+}
+.table .notes-table-title {
+  height: 30px;
+  background-color: #999999;
+  color: #fff;
+}
+.notes-table-title .icons span:hover {
+  color: #616161;
+}
+.note {
+  height: 40px;
+  margin: 5px 0;
+  background-color: #e8eaf5;
+  color: #7a7a7a;
+  cursor: default;
+}
+.note.edit {
+  box-shadow: 2px 2px 3px #616161;
+  background-color: #dfdfdf;
+}
+.note td:focus {
+  outline: none;
+}
+.table .note td:nth-child(2)  {
+  color: #616161;
+}
+td.edit-cell > div.content {
+  height: auto;
+  overflow: visible;
+  white-space: pre-wrap;
+}
+.create-note-btn {
+  float: right;
+}
+.create-note-btn:hover {
+  cursor: pointer;
+}
+.new-note {
+  display: inline-block;
+  border: 1px solid #616161;
+  padding: 5px;
+  margin: 5px;
+}
+input,
+textarea {
+  display: inline-block;
+  vertical-align: middle;
+  height: 30px;
+  margin-right: 5px;
+}
+select {
+  height: 35px;
+  margin-right: 5px;
+}
