@@ -1,0 +1,51 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?rw3vov');
+  src:  url('fonts/icomoon.eot?rw3vov#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?rw3vov') format('truetype'),
+    url('fonts/icomoon.woff?rw3vov') format('woff'),
+    url('fonts/icomoon.svg?rw3vov#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-edit-pencil:before {
+  content: "\e904";
+}
+.icon-lightbulb_outline:before {
+  content: "\e903";
+}
+.icon-shopping-basket:before {
+  content: "\e900";
+}
+.icon-box-add:before {
+  content: "\e95e";
+}
+.icon-box-remove:before {
+  content: "\e95f";
+}
+.icon-user-check:before {
+  content: "\e975";
+}
+.icon-bin2:before {
+  content: "\e9ad";
+}
+.icon-box-remove:before {
+  content: "\e95f";
+}
