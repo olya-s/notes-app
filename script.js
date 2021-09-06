@@ -278,7 +278,7 @@ function createNote(note, notes, id) {
     newNote.created = today.toDateString();
     newNote.category = note.children[1].value;
     newNote.content = note.children[2].value;
-    const dates = newNote.content.match(/(\d{1,2}(\.|\/)){1,2}(\d{4}|\d{2})/g);//match(/(\d{1,2}(\.||\/){1}){2}(\d{2}||\d{4})/g);
+    const dates = newNote.content.match(/(\d{1,2}(\.|\/)){1,2}(\d{4}|\d{2})/g);
     newNote.dates = dates ? dates.join(', ') : '';
     if (newNote.name !== '' && newNote.content !== '') {
       notes.push(newNote);
@@ -353,27 +353,25 @@ async function onPageLoaded() {
         renderNotesTable(notes);
       }
     }
-
-    // if (elem.classList.contains('edit-note') && !editElem) {
-    //   note.classList.add('edit');
-    //   note.children[1].contentEditable = true;
-    //   note.children[1].style.color = '#000';
-    //   note.children[1].classList.add('edit-cell');
-    //   note.children[4].contentEditable = true;
-    //   note.children[4].style.color = '#000';
-    //   note.children[4].classList.add('edit-cell');
-    //   note.children[4].focus();
-    // }
   });
   document.addEventListener('click', event => {
     const elem = event.target;
     const note = elem.closest('.note');
     const editElem = document.querySelector('.edit');
     const newNote = document.querySelector('.new-note');
-    if (!elem.classList.contains('edit-note') && !note.classList.contains('edit')) {
-      if (newNote && !elem.parentElement.classList.contains('new-note')) {
-        newNote.remove();
+    if (elem.tagName == 'BODY') {
+      if (editElem) {
+        [].forEach.call(editElem.children, elem => {
+          elem.contentEditable = false;
+          elem.style.color = '#7a7a7a';
+          elem.classList.remove('edit-cell');
+        });
+        editElem.classList.remove('edit');
+
+        renderNotesTable(notes);
       }
+    }
+    else if (!elem.classList.contains('edit-note')) {
       if (((note && !note.classList.contains('edit')) || !note) && editElem) {
         editNote(editElem, notes, +editElem.dataset.id);
         [].forEach.call(editElem.children, elem => {
@@ -426,11 +424,15 @@ async function onPageLoaded() {
       if (elem.classList.contains('delete-archive-all')) {
         archiveNotes.length = 0;
       }
+
       localStorage.setItem('notes', JSON.stringify(notes));
       localStorage.setItem('archiveNotes', JSON.stringify(archiveNotes));
       renderNotesTable(notes);
       renderSummaryTable(notes, archiveNotes);
       renderArchiveTable(archiveNotes);
+    }
+    if (newNote && !elem.parentElement.classList.contains('new-note')) {
+      newNote.remove();
     }
   });
   document.addEventListener('keypress', event => {
